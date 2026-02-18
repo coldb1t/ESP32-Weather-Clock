@@ -26,7 +26,7 @@ void setup()
     abort();
   }
 
-  if (!Wire.begin(21, 23))
+  if (!Wire.begin(21, 22))
   {
     Serial.println("Wire begin error");
     abort();

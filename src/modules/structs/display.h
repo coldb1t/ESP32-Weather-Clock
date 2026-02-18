@@ -6,11 +6,11 @@ public:
     explicit DisplayModule(const Vec2 size,
                            const uint32_t frequency = 0u,
                            const int8_t oled_reset = -1) : size(size),
-                                                           oled_reset(oled_reset),
-                                                           display(size.x, size.y, &Wire, oled_reset) {};
+                                                           oled_reset(oled_reset) {};
 
     [[nodiscard]] bool begin()
     {
+        display = Adafruit_SSD1306(size.x, size.y, &Wire, oled_reset);
         return display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
     }
 
