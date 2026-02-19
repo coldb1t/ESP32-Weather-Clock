@@ -63,9 +63,9 @@ public:
         return {static_cast<int16_t>(size_x), static_cast<int16_t>(size_y)};
     }
 
-    Adafruit_SSD1306 display;
     const Vec2 size = Vec2();
 
 private:
     int8_t oled_reset = -1;
+    Adafruit_SSD1306 display;
 };

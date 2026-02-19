@@ -15,59 +15,86 @@
       "id": "dht1",
       "top": -40,
       "left": 150,
-      "attrs": { "temperature": "24", "humidity": "60" }
+      "attrs": {
+        "temperature": "24",
+        "humidity": "60"
+      }
     },
     {
       "type": "wokwi-ssd1306",
       "id": "oled1",
-      "top": -120,
-      "left": 300,
-      "attrs": { "width": "128", "height": "64" }
+      "top": -100,
+      "left": 220,
+      "attrs": {
+        "width": "128",
+        "height": "64"
+      }
     },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
       "top": 100,
       "left": 300,
-      "attrs": { "color": "green" }
+      "attrs": {
+        "color": "green"
+      }
     },
     {
       "type": "wokwi-buzzer",
       "id": "bz1",
-      "top": 200,
+      "top": 210,
       "left": 300,
-      "attrs": { "volume": "1.0" }
+      "attrs": {
+        "volume": "1.0"
+      }
     },
     {
       "type": "wokwi-ds1307",
       "id": "rtc1",
-      "top": -40,
-      "left": 450,
+      "top": 40,
+      "left": 400,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 40,
+      "left": 300,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 160,
+      "left": 300,
+      "attrs": {
+        "color": "blue"
+      }
     }
   ],
   "connections": [
     ["dht1:VCC", "esp:3V3", "red", ["v0"]],
     ["dht1:GND", "esp:GND.1", "black", ["v0"]],
     ["dht1:SDA", "esp:D15", "green", ["v0"]],
-
     ["oled1:VCC", "esp:3V3", "red", ["v0"]],
     ["oled1:GND", "esp:GND.1", "black", ["v0"]],
     ["oled1:SDA", "esp:D21", "blue", ["v0"]],
     ["oled1:SCL", "esp:D22", "yellow", ["v0"]],
-
     ["btn1:1.l", "esp:D23", "green", ["v0"]],
     ["btn1:2.r", "esp:GND.2", "black", ["v0"]],
-
-    ["bz1:1", "esp:D25", "purple", ["v0"]],
+    ["bz1:1", "esp:D25", "green", ["v0"]],
     ["bz1:2", "esp:GND.2", "black", ["v0"]],
-
     ["rtc1:GND", "esp:GND.1", "black", ["v0"]],
     ["rtc1:VCC", "esp:3V3", "red", ["v0"]],
     ["rtc1:SDA", "esp:D21", "blue", ["v0"]],
     ["rtc1:SCL", "esp:D22", "yellow", ["v0"]],
-
     ["esp:TX0", "$serialMonitor:RX", "", []],
-    ["esp:RX0", "$serialMonitor:TX", "", []]
+    ["esp:RX0", "$serialMonitor:TX", "", []],
+    ["btn2:1.l", "esp:D19", "green", ["v0"]],
+    ["btn2:2.r", "esp:GND.2", "black", ["v0"]],
+    ["btn3:1.l", "esp:D18", "green", ["v0"]],
+    ["btn3:2.r", "esp:GND.2", "black", ["v0"]]
   ]
 }

@@ -71,7 +71,7 @@ namespace core
 
     private:
         mutable SemaphoreHandle_t mutex = nullptr;
-        mutable T cache{};
         T data{};
+        mutable T cache{};
     };
 }
