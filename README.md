@@ -29,7 +29,7 @@ Used Wokwi and PlatformIO for simulation.
 |------|-------|----------|--------|
 | `SENSOR_TASK` | 2048 B | 1 | 5000 ms |
 | `RENDER_TASK` | 8192 B | 1 | 60 ms |
-| `BUTTON_TASK` | 1038 B | 2 | 50 ms |
+| `BUTTON_TASK` | 2048 B | 2 | 50 ms |
 
 ## Resource Usage
 
