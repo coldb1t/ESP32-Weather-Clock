@@ -2,23 +2,26 @@
 
 ESP32 project displaying real-time clock, temperature, and humidity on a 128×64 OLED screen. 
 Built with FreeRTOS tasks and a custom thread-safe data wrapper.
+Used Wokwi and PlatformIO for simulation.
+![](image.png)
 
 ## Hardware
 
 | Component | Pin |
 |-----------|-----|
-| SSD1306 OLED (128×64, I2C) | SDA: 21, SCL: 22 |
-| DS1307 RTC (I2C) | SDA: 21, SCL: 22 |
-| DHT22 temperature/humidity sensor | GPIO 15 |
-| Buzzer (LEDC PWM) | GPIO 25, channel 0 |
-| Button | GPIO 23 (INPUT_PULLUP) |
+| SSD1306 OLED (128×64) | SDA: D21, SCL: D22 |
+| DS1307 RTC | SDA: D21, SCL: D22 |
+| DHT22 temperature/humidity sensor | SDA: D15 |
+| Buzzer | D25 |
+| Buttons (3) | D18, D19, D21 |
 
 ## Features
 
-- Real-time clock display (HH:MM) with seconds bar
+- Real-time clock display (HH:MM) with seconds bar, date, day of week
 - Temperature and humidity monitoring
-- Heap usage monitor
+- Heap usage monitor (for debug version)
 - Thread-safe sensor reads via custom `core::locked<T>` mutex wrapper
+- Release and debug configurations
 
 ## FreeRTOS Tasks
 
@@ -26,7 +29,7 @@ Built with FreeRTOS tasks and a custom thread-safe data wrapper.
 |------|-------|----------|--------|
 | `SENSOR_TASK` | 2048 B | 1 | 5000 ms |
 | `RENDER_TASK` | 8192 B | 1 | 60 ms |
-| `BUTTON_TASK` | 1024 B | 2 | 50 ms |
+| `BUTTON_TASK` | 1038 B | 2 | 50 ms |
 
 ## Resource Usage
 
@@ -36,8 +39,8 @@ Flash: [==        ]  24.0% (used 315013 bytes from 1310720 bytes)
 ```
 
 ## Todo
-- Render current date on the display
+- ~~Render current date on the display~~
 - Implement mini-interface with multiple buttons for simple control
 - Add alarms module
-- Protect `was_pressed` with `core::locked<T>`
+- ~~Protect `was_pressed` with `core::locked<T>`~~
 - Update time over WIFI
